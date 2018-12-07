@@ -5,7 +5,7 @@ pipeline{
 		stage("docker build"){
 			steps{
 				sh """
-				 docker build -t koochetti/essoltech .
+				 sudo docker build -t koochetti/essoltech .
 				"""
 			}
 		}
@@ -14,8 +14,8 @@ pipeline{
 			withCredentials([usernamePassword(credentialsId: 'dp', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
 			{
 				sh """
-				      docker login --username $USER --password $PASSWORD
-			              docker push koochetti/essoltech
+				      sudo docker login --username $USER --password $PASSWORD
+			              sudo docker push koochetti/essoltech
 				"""
 			}
 		
