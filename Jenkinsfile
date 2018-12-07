@@ -5,7 +5,7 @@ pipeline{
 		stage("docker build"){
 			steps{
 				sh """
-					docker build -t koochetti/essoltech .
+				sudo docker build -t koochetti/essoltech .
 				"""
 			}
 		}
